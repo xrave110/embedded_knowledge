@@ -21,6 +21,7 @@ Or use gcc.
 [Buggy](#2-buggy)
 [Algorithms for sorted data](#3.-algorithms-for-sorted-data)
 - [Two pointers technique](#two-pointers-technique)
+- [Binary search](#binary-search)
 [Data Structures](#4.-data-structures)
 - [Hashing Data Structure](#hashing-data-structure)
 - [Linked List](#linked-list)
@@ -29,14 +30,14 @@ Or use gcc.
 ## 1. Structure padding
 - Usually to have most efficient padding you must segregate the structure from the biggest data type to the smallest.
 - It is also possible to use compiler `pragma pack(1)` to padd correctly but it requires more computation power.
-- The issue are showed in the <a src='./struct_padding/struct_padding.c'>source code</a>.
+- The issue are showed in the [source code](./struct_padding/struct_padding.c).
 
 ## 2. Buggy
 - gdb debbuger simple usage
 - simple makefile with clang
 - buggy code with null pointer to be debugged
 - issue with using printf as a debugger
-- <a src='./buggy/buggy.c'>source code</a>
+- [source code](./buggy/buggy.c)
 
 - GDP debugging:
     - bt - backtrace 
@@ -67,5 +68,8 @@ Or use gcc.
     (gdb)
     ```
 
-## 3. Two pointer technique
-- <a src='./algorithms_sorted/two_pointers_technique.c'>source code</a>
+## 3. Algorithms for sorted data
+- ### Two pointer technique
+  - [source code](./algorithms_sorted/two_pointers_technique.c)
+- ### Binary search
+  - [source code](./algorithms_sorted/binary_search.c)
