@@ -18,11 +18,13 @@ Or use gcc.
 ## Table of content
 
 [Structure padding](#1.-structure-padding)
-[Buggy](#2-buggy)
-[Algorithms for sorted data](#3.-algorithms-for-sorted-data)
+[Buggy](#2.-buggy)
+[Sorting algorithms](#3.-sorting-algorithms)
+- [Typical sorting algorithms](#typical-sorting-algorithms)
+[Algorithms for sorted data](#4.-algorithms-for-sorted-data)
 - [Two pointers technique](#two-pointers-technique)
 - [Binary search](#binary-search)
-[Data Structures](#4.-data-structures)
+[Data Structures](#5.-data-structures)
 - [Hashing Data Structure](#hashing-data-structure)
 - [Linked List](#linked-list)
 
@@ -30,7 +32,7 @@ Or use gcc.
 ## 1. Structure padding
 - Usually to have most efficient padding you must segregate the structure from the biggest data type to the smallest.
 - It is also possible to use compiler `pragma pack(1)` to padd correctly but it requires more computation power.
-- The issue are showed in the [source code](./struct_padding/struct_padding.c).
+- The issues are showed in the [source code](./struct_padding/struct_padding.c).
 
 ## 2. Buggy
 - gdb debbuger simple usage
@@ -67,9 +69,20 @@ Or use gcc.
     $2 = 0x0
     (gdb)
     ```
-
-## 3. Algorithms for sorted data
+## 3. Sorting algorithms
+### Typical sorting algorithms
+- Bubble sort
+- Merge sort
+- Quick sort
+### Advanced sorting algorithms
+- Radix sort
+- Heap sort
+## 4. Algorithms for sorted data
 - ### Two pointer technique
   - [source code](./algorithms_sorted/two_pointers_technique.c)
 - ### Binary search
   - [source code](./algorithms_sorted/binary_search.c)
+
+## 5. Data structures
+### Hashing data structure
+### Linked list
