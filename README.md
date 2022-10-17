@@ -29,6 +29,8 @@ Or use gcc.
 - [Hashing Data Structure](#hashing-data-structure)
 - [Linked List](#linked-list)
 - [Trie Data Structure](#trie-data-structure)
+[Bitwise](#7.-bitwise)
+[CMake](#8.-cmake)
 
 
 ## 1. Structure padding
@@ -129,3 +131,7 @@ In order to have list there is need to have a node structure which would have tw
 
 ### Trie Data Structure
 Data structure used for retrieving string of symbols. Each trie data structure has a root and branches which allow to find, insert and delete special element very fast.
+
+## 7. Bitwise
+
+## 8. CMake
