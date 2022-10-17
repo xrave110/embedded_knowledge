@@ -1,0 +1,1 @@
+add_library(safe_math safe_math.c)
