@@ -99,11 +99,42 @@ Run compilation with optimalization: `clang volatile.c -O2`
 - `volatile int *volatile done;` - volatile pointer to volatile variable
 
 Compiler optimizations - makes the code faster and more efficient that is why it is not recommended to overuse volatile.
+
+An object marked as `const volatile` will not be permitted to be changed by the code (an error will be raised due to the const qualifier) - at least through that particular name/pointer.
+
+The volatile part of the qualifier means that the compiler cannot optimize or reorder access to the object.
+
+In an embedded system, this is typically used to access hardware registers that can be read and are updated by the hardware, but make no sense to write to (or might be an error to write to).
+Example:
+```C
+unsigned int const volatile *status_reg; // assume these are assigned to point to the 
+unsigned char const volatile *recv_reg;  //   correct hardware addresses
+
+
+#define UART_CHAR_READY 0x00000001
+
+int get_next_char()
+{
+    while ((*status_reg & UART_CHAR_READY) == 0) {
+        // do nothing but spin
+    }
+
+    return *recv_reg;
+}
+```
+
+If these pointers were not marked as being volatile, a couple problems might occur:
+  - the while loop test might read the status register only once, since the compiler could assume that whatever it pointed to would never change (there's nothing in the while loop test or loop itself that could change it). If you entered the function when there was no character waiting in UART hardware, you might end up in an infinite loop that never stopped even when a character was received.
+  - the read of the receive register could be moved by the compiler to before the while loop - again because there's nothing in the function that indicates that *recv_reg is changed by the loop, there's no reason it can't be read before entering the loop.
+
 ## 4. Sorting algorithms
 ### Typical sorting algorithms
-- Bubble sort
-- Merge sort
+- Bubble sort - Time complexity: O(n)/O(n^2) - Space complexity: O(1)
+- Selection sort - Time complexity: O(n^2) - Space complexity: O(1)
+- Insertion sort - Time complexity: O(n^2) - Space complexity: O(1)
+- Merge sort - Time complexity: O(nlog(n)) - Space complexity: O(n)
 - Quick sort
+- [source code](./sorting_algorithms/types_of_sorting.cpp)
 ### Advanced sorting algorithms
 - Radix sort
 - Heap sort
@@ -135,3 +166,16 @@ Data structure used for retrieving string of symbols. Each trie data structure h
 ## 7. Bitwise
 
 ## 8. CMake
+
+TODO for GL !!
+Cmake, Linker script TODO !!
+
+1. Git rebase vs git merge
+2. Jak działa Scheduler
+3. Implementacja wykrywania przepełnienia stosu ( ustawić jakąs flage i sprawdzać czy została nadpisana )
+4. const volatile 
+5. Jak wywoływane są ramki canowskie jak to jest trigerowane
+6. Exclusive area - mutex -> jak to jest realizowane (w momencie kiedy scheduler zaczyna wykonywanie danego tasku wtedy trzeba sprawdzać czy zmienna jest zajęta)
+7. Plik .ld i mapa pamięci
+8. Proces kompilacji i linkowanie
+9. OS - freeRTOS (praktyka)
