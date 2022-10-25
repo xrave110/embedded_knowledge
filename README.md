@@ -17,21 +17,25 @@ Run:
 Or use gcc.
 ## Table of content
 
-[Structure padding](#1.-structure-padding)
-[Buggy](#2.-buggy)
-[Volatile and threads](#3.-volatile-and-threads)
-[Sorting algorithms](#4.-sorting-algorithms)
-- [Typical sorting algorithms](#typical-sorting-algorithms)
-[Algorithms for sorted data](#5.-algorithms-for-sorted-data)
-- [Two pointers technique](#two-pointers-technique)
-- [Binary search](#binary-search)
-[Data Structures](#6.-data-structures)
-- [Hashing Data Structure](#hashing-data-structure)
-- [Linked List](#linked-list)
-- [Trie Data Structure](#trie-data-structure)
-[Bitwise](#7.-bitwise)
-[CMake](#8.-cmake)
-
+- [Embedded knowledge](#embedded-knowledge)
+  - [Table of content](#table-of-content)
+  - [1. Structure padding](#1-structure-padding)
+  - [2. Buggy](#2-buggy)
+  - [3. Volatile and threads](#3-volatile-and-threads)
+    - [Thread vs process](#thread-vs-process)
+    - [Threads](#threads)
+    - [Volatile](#volatile)
+      - [Variations](#variations)
+  - [4. Sorting algorithms](#4-sorting-algorithms)
+    - [Typical sorting algorithms](#typical-sorting-algorithms)
+    - [Advanced sorting algorithms](#advanced-sorting-algorithms)
+  - [5. Algorithms for sorted data](#5-algorithms-for-sorted-data)
+  - [6. Data structures](#6-data-structures)
+    - [Hashing data structure](#hashing-data-structure)
+    - [Linked list](#linked-list)
+    - [Trie Data Structure](#trie-data-structure)
+  - [7. Bitwise](#7-bitwise)
+  - [8. CMake](#8-cmake)
 
 ## 1. Structure padding
 - Usually to have most efficient padding you must segregate the structure from the biggest data type to the smallest.
@@ -93,7 +97,7 @@ Volatile keyword prevents from optimalization. It is used when some other proces
 
 Run compilation with optimalization: `clang volatile.c -O2`
 
-#### Variations:
+#### Variations
 - `volatile int* done;` - pointer to volatile variable
 - `int *volatile done;` - volatile pointer to variable
 - `volatile int *volatile done;` - volatile pointer to volatile variable
@@ -167,15 +171,4 @@ Data structure used for retrieving string of symbols. Each trie data structure h
 
 ## 8. CMake
 
-TODO for GL !!
-Cmake, Linker script TODO !!
 
-1. Git rebase vs git merge
-2. Jak działa Scheduler
-3. Implementacja wykrywania przepełnienia stosu ( ustawić jakąs flage i sprawdzać czy została nadpisana )
-4. const volatile 
-5. Jak wywoływane są ramki canowskie jak to jest trigerowane
-6. Exclusive area - mutex -> jak to jest realizowane (w momencie kiedy scheduler zaczyna wykonywanie danego tasku wtedy trzeba sprawdzać czy zmienna jest zajęta)
-7. Plik .ld i mapa pamięci
-8. Proces kompilacji i linkowanie
-9. OS - freeRTOS (praktyka)
